@@ -7,17 +7,28 @@
 </head>
 <body>
     <h1>Hasil Deteksi Anomali Transaksi</h1>
-    <p>Jumlah transaksi tidak wajar (cluster -1): {{ outlier_count }}</p>
+    <p>Ditemukan Terdapat {{ outlier_count }} tranasksi Mencurigakan</p>
     {% if plot_url %}
-        <h2>Visualisasi Data</h2>
+        <h2>Visualisasi Data Transaksi</h2>
         <img src="data:image/png;base64,{{ plot_url }}" alt="Cluster Visualization">
     {% else %}
         <p>Visualisasi tidak ditampilkan.</p>
     {% endif %}
     <h2>Data Transaksi Tidak Wajar</h2>
-    <div>
-        {{ outliers|safe }}
-    </div>
+    <table>
+        <tr>
+            <th>Transaction Date</th>
+            <th>Merchant</th>
+            <th>Amount</th>
+        </tr>
+        {% for outlier in outliers %}
+        <tr>
+            <td>{{ outlier['Transaction Date'] }}</td>
+            <td>{{ outlier['Merchant'] }}</td>
+            <td>{{ outlier['Amount'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <br>
     <a href="{{ url_for('index') }}">Kembali</a>
 </body>

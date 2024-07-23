@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Fraud Detection</title>
+    <title>DBSCAN Clustering</title>
 </head>
 <body>
-    <h1>Credit Card Fraud Detections</h1>
+    <h1>DBSCAN Clustering</h1>
     <form action="{{ url_for('results') }}" method="post">
         <p>Apakah Anda ingin menampilkan visualisasi data?</p>
         <label for="yes">
-            <input type="radio" id="yes" name="show_visualization" value="yes"> Yes
+            <input type="radio" id="yes" name="show_visualization" value="yes" required> Yes
         </label>
         <label for="no">
-            <input type="radio" id="no" name="show_visualization" value="no"> No
+            <input type="radio" id="no" name="show_visualization" value="no" required> No
         </label>
-        <br>
-        <p>Tekan Submit untuk memulai deteksi </p>
+        <br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
