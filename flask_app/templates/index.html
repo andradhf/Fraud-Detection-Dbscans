@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+</head>
+<body>
+    <h1>Credit Card Fraud Detections</h1>
+    <form action="{{ url_for('results') }}" method="post">
+        <p>Apakah Anda ingin menampilkan visualisasi data?</p>
+        <label for="yes">
+            <input type="radio" id="yes" name="show_visualization" value="yes"> Yes
+        </label>
+        <label for="no">
+            <input type="radio" id="no" name="show_visualization" value="no"> No
+        </label>
+        <br>
+        <p>Tekan Submit untuk memulai deteksi </p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

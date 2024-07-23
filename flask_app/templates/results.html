@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Hasil Deteksi Anomali Transaksi</h1>
+    <p>Jumlah transaksi tidak wajar (cluster -1): {{ outlier_count }}</p>
+    {% if plot_url %}
+        <h2>Visualisasi Data</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Cluster Visualization">
+    {% else %}
+        <p>Visualisasi tidak ditampilkan.</p>
+    {% endif %}
+    <h2>Data Transaksi Tidak Wajar</h2>
+    <div>
+        {{ outliers|safe }}
+    </div>
+    <br>
+    <a href="{{ url_for('index') }}">Kembali</a>
+</body>
+</html>
